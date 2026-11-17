@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Schutz vor Suchmaschinen-Indexierung (Demo-Version) -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Design-Entwurf · Schreinerei Kauffmann Köln</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        .page-view {
+            animation: fadeIn 0.25s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Edler Holz- & Anthrazit-Hintergrund mit warmem Licht-Raster */
+        .hero-pattern {
+            background-color: #181512;
+            background-image: radial-gradient(rgba(217, 119, 6, 0.15) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        /* Laufband für Leistungsschwerpunkte */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-amber-700 selection:text-white flex flex-col min-h-screen">
+
+    <!-- 1. Gut sichtbarer Demo-Hinweis-Balken ganz oben -->
+    <div class="bg-amber-600 text-white text-xs md:text-sm font-extrabold py-2.5 px-4 text-center border-b border-amber-700 shadow-xs z-50">
+        🎨 UNVERBINDLICHER DESIGN-ENTWURF · Demoseite erstellt von Local Growth Media (Keine aktive Unternehmenswebsite)
+    </div>
+
+    <!-- 2. Top-Kontaktleiste -->
+    <div class="bg-stone-950 text-stone-300 text-xs font-medium py-2 px-4 border-b border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <span class="text-stone-300">🪵 Schreinerei &amp; Innenausbau · Lotharstraße 20, 50937 Köln-Lindenthal</span>
+            <div class="flex items-center gap-4">
+                <a href="tel:+49221415088" class="text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1.5">
+                    <span>📞 0221 / 415088</span>
+                </a>
+                <span class="hidden md:inline text-stone-400">🕒 Mo–Fr: 08:00–17:00 Uhr</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Hauptnavigation (Harmonisches Holzbraun & Warmweiß) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-2xs">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
+            <button type="button" onclick="navigateTo('home')" class="flex items-center gap-3 text-left group cursor-pointer">
+                <div class="relative w-11 h-11 rounded-xl bg-stone-900 border-2 border-amber-700 text-amber-400 flex items-center justify-center font-extrabold text-base tracking-tight shadow-sm group-hover:scale-[1.02] transition shrink-0">
+                    <span>SK</span>
+                    <span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-amber-600 text-white text-[10px] font-black flex items-center justify-center shadow-2xs">🪵</span>
+                </div>
+                <div>
+                    <span class="text-sm md:text-base font-extrabold text-stone-900 block leading-tight tracking-tight">
+                        SCHREINEREI <span class="text-amber-800">KAUFFMANN</span>
+                    </span>
+                    <span class="text-[11px] font-semibold text-stone-500 block">
+                        Individueller Möbelbau &amp; Innenausbau Köln
+                    </span>
+                </div>
+            </button>
+
+            <nav class="hidden lg:flex items-center gap-1 bg-stone-100 p-1 rounded-xl border border-stone-200">
+                <button type="button" onclick="navigateTo('home')" data-nav="home" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold transition bg-amber-800 text-white shadow-2xs cursor-pointer">Startseite</button>
+                <button type="button" onclick="navigateTo('leistungen')" data-nav="leistungen" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-stone-700 hover:text-stone-950 transition cursor-pointer">Leistungen</button>
+                <button type="button" onclick="navigateTo('ueber-uns')" data-nav="ueber-uns" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-stone-700 hover:text-stone-950 transition cursor-pointer">Über uns &amp; Maßarbeit</button>
+                <button type="button" onclick="navigateTo('kontakt')" data-nav="kontakt" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-stone-700 hover:text-stone-950 transition cursor-pointer">Kontakt</button>
+            </nav>
+
+            <a href="tel:+49221415088" class="bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs md:text-sm px-4 py-2.5 rounded-xl transition shadow-xs flex items-center gap-1.5">
+                <span>📞</span>
+                <span>0221 / 415088</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HAUPTINHALT -->
+    <main class="flex-1">
+
+        <!-- UNTERSEITE 1: STARTSEITE -->
+        <div id="view-home" class="page-view">
+
+            <!-- HERO SECTION -->
+            <section class="relative hero-pattern text-white pt-12 pb-16 md:pt-16 md:pb-20 px-4 overflow-hidden border-b border-stone-800">
+                <div class="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+                    <!-- Linke Spalte -->
+                    <div class="lg:col-span-6 pt-2">
+                        <div class="inline-flex items-center gap-2.5 bg-stone-900/90 backdrop-blur-md border border-stone-800 rounded-full px-4 py-1.5 text-xs font-semibold mb-5 shadow-sm">
+                            <span class="text-amber-400 text-sm">🪵</span>
+                            <span class="text-stone-200 font-bold">Traditionelles Handwerk in Köln</span>
+                            <span class="text-stone-400">· Lindenthal</span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] mb-5 text-white">
+                            Ihr Meisterbetrieb für <span class="text-amber-500">Maßmöbel</span>, <span class="text-amber-200">Innenausbau</span> &amp; Holzarbeiten.
+                        </h1>
+
+                        <p class="text-stone-300 text-base md:text-lg leading-relaxed mb-7 font-normal">
+                            Kreative Holzverarbeitung und passgenaue Lösungen für Ihr Zuhause. Von Einbauschränken über Dachschrägen-Möbel bis hin zu individuellen Regalsystemen und Tischen direkt aus Köln-Lindenthal[cite: 7].
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-7 text-sm">
+                            <div class="flex items-center gap-2.5 bg-stone-900/90 border border-stone-800 rounded-xl px-3.5 py-2.5">
+                                <span class="text-amber-400 font-bold">✓</span>
+                                <span class="text-stone-200 font-medium">Maßgefertigte Schränke</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-stone-900/90 border border-stone-800 rounded-xl px-3.5 py-2.5">
+                                <span class="text-amber-400 font-bold">✓</span>
+                                <span class="text-stone-200 font-medium">Individuelle Tische &amp; Möbel</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-stone-900/90 border border-stone-800 rounded-xl px-3.5 py-2.5">
+                                <span class="text-amber-400 font-bold">✓</span>
+                                <span class="text-stone-200 font-medium">Dachschrägen-Lösungen</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 bg-stone-900/90 border border-stone-800 rounded-xl px-3.5 py-2.5">
+                                <span class="text-amber-400 font-bold">✓</span>
+                                <span class="text-stone-200 font-medium">Regalsysteme &amp; Kommoden</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3">
+                            <a href="tel:+49221415088" class="bg-amber-700 text-white hover:bg-amber-600 font-extrabold px-5 py-3.5 rounded-xl text-sm transition shadow-md inline-flex items-center gap-2">
+                                <span>📞 Direkt anrufen: 0221 / 415088</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Rechte Spalte: Rechner & Formular -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-white text-stone-900 rounded-3xl p-5 sm:p-7 shadow-2xl border border-stone-200">
+                            <div class="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-stone-100">
+                                <div>
+                                    <span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-amber-800">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                                        Schreinerei- &amp; Möbel-Rechner
+                                    </span>
+                                    <h2 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-0.5">
+                                        Unverbindlichen Richtpreis &amp; Beratung anfragen
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <form id="heroDirectForm" class="space-y-4">
+                                <input type="hidden" name="access_key" value="DEIN_WEB3FORMS_KEY">
+                                <input type="hidden" name="subject" value="Neue Maßmöbel-Anfrage - Schreinerei Kauffmann Köln">
+                                <input type="hidden" id="heroCalcSummary" name="kalkulation">
+
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-700 mb-1.5">Welches Möbelstück oder Projekt planen Sie?</label>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button type="button" onclick="setHeroService('Einbauschrank / Kleiderschrank', 450, this)" class="hero-srv-btn border-2 border-amber-800 bg-amber-50/50 text-amber-950 rounded-xl py-2 px-2 text-center transition cursor-pointer">
+                                            <span class="block text-xs font-extrabold">🚪 Schrankbau</span>
+                                        </button>
+                                        <button type="button" onclick="setHeroService('Tisch / Schreibtisch nach Maß', 380, this)" class="hero-srv-btn border border-stone-200 bg-stone-50 text-stone-700 hover:border-amber-600 rounded-xl py-2 px-2 text-center transition cursor-pointer">
+                                            <span class="block text-xs font-extrabold">🪑 Tisch / Möbel</span>
+                                        </button>
+                                        <button type="button" onclick="setHeroService('Dachschrägen-Möbel / Regal', 520, this)" class="hero-srv-btn border border-stone-200 bg-stone-50 text-stone-700 hover:border-amber-600 rounded-xl py-2 px-2 text-center transition cursor-pointer">
+                                            <span class="block text-xs font-extrabold">📐 Dachschräge</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="bg-stone-50 border border-stone-200 rounded-2xl p-3.5">
+                                    <div class="flex items-center justify-between text-xs mb-1.5">
+                                        <span class="font-bold text-stone-700">Umfang: <strong id="heroScopeVal" class="text-amber-800">2 laufende Meter / Elemente</strong></span>
+                                        <span class="font-extrabold text-stone-900 bg-white border border-stone-200 px-2.5 py-0.5 rounded-lg">
+                                            Richtwert: <span id="heroLivePrice" class="text-amber-800">ca. 900 €</span>
+                                        </span>
+                                    </div>
+                                    <input type="range" id="heroScopeSlider" min="1" max="10" step="1" value="2" oninput="updateHeroEstimate()" class="w-full accent-amber-800 cursor-pointer">
+                                    <div class="flex justify-between text-[10px] text-stone-400 mt-0.5">
+                                        <span>1 lfd. Meter</span>
+                                        <span>5 lfd. Meter</span>
+                                        <span>10 lfd. Meter (Großprojekt)</span>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-stone-700 mb-1">Ihr Name *</label>
+                                        <input type="text" name="name" required placeholder="Max Mustermann" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm text-stone-900 focus:outline-none focus:border-amber-800 focus:bg-white">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-stone-700 mb-1">Telefon oder E-Mail *</label>
+                                        <input type="text" name="contact" required placeholder="0221... oder E-Mail" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm text-stone-900 focus:outline-none focus:border-amber-800 focus:bg-white">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-700 mb-1">Kölner Stadtteil / Wunsch (optional)</label>
+                                    <input type="text" name="details" placeholder="z.B. Lindenthal, Einbauschrank unter Dachschräge" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm text-stone-900 focus:outline-none focus:border-amber-800 focus:bg-white">
+                                </div>
+
+                                <button type="submit" id="heroSubmitBtn" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-extrabold py-3.5 rounded-xl text-sm transition shadow-md cursor-pointer">
+                                    Unverbindliches Angebot anfragen →
+                                </button>
+                            </form>
+
+                            <div id="heroSuccessBox" class="hidden bg-emerald-50 border border-emerald-300 text-emerald-900 p-4 rounded-2xl text-sm text-center space-y-2">
+                                <div class="font-extrabold">✅ Anfrage erfolgreich übermittelt!</div>
+                                <p class="text-xs">Vielen Dank! Die Schreinerei Kauffmann meldet sich zeitnah bei Ihnen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Laufendes Keyword-Band in edlem Holzbraun -->
+            <div class="bg-amber-900 text-amber-100 py-3 overflow-hidden border-y border-amber-950 font-extrabold">
+                <div class="animate-marquee text-xs uppercase tracking-widest flex items-center gap-8">
+                    <span>INDIVIDUELLER MÖBELBAU</span><span>🪵</span>
+                    <span>EINBAUSCHRÄNKE &amp; REGALE</span><span>🪵</span>
+                    <span>DACHSCHRÄGEN-LÖSUNGEN</span><span>🪵</span>
+                    <span>TISCHE &amp; KOMMODEN NACH MASS</span><span>🪵</span>
+                    <span>INNENAUSBAU KÖLN</span><span>🪵</span>
+                    <span>KREATIVE HOLZVERARBEITUNG</span><span>🪵</span>
+                    <span>LINDENTHAL &amp; UMGEBUNG</span><span>🪵</span>
+                </div>
+            </div>
+
+            <!-- Service-Leiste -->
+            <section class="py-8 px-4 bg-white border-b border-stone-200">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-stone-500">Handwerkliche Präzision aus Köln</span>
+                    <div class="flex flex-wrap justify-center gap-3 text-xs font-bold text-stone-800">
+                        <span class="bg-stone-100 border border-stone-200 px-3.5 py-2 rounded-xl">🪵 Meisterbetrieb für Maßmöbel</span>
+                        <span class="bg-stone-100 border border-stone-200 px-3.5 py-2 rounded-xl">📐 Passgenau für jeden Grundriss</span>
+                        <span class="bg-stone-100 border border-stone-200 px-3.5 py-2 rounded-xl">📍 Standort Köln-Lindenthal</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANIMIERTE ERFOLGSZÄHLER -->
+            <section id="countersSection" class="py-14 px-4 bg-stone-900 text-white border-b border-stone-800">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest">Qualität &amp; Leidenschaft</span>
+                        <h2 class="text-2xl md:text-4xl font-extrabold mt-1">Zahlen, auf die Sie bauen können.</h2>
+                    </div>
+
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-400 counter-num" data-target="20" data-suffix="+">0+</div>
+                            <div class="text-xs sm:text-sm font-semibold text-stone-300 mt-2">Jahre Schreinerei-Erfahrung</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-500 counter-num" data-target="500" data-suffix="+">0+</div>
+                            <div class="text-xs sm:text-sm font-semibold text-stone-300 mt-2">Maßmöbel &amp; Unikate</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-400 counter-num" data-target="100" data-suffix="%">0%</div>
+                            <div class="text-xs sm:text-sm font-semibold text-stone-300 mt-2">Handwerkliche Präzision</div>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                            <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-500 counter-num" data-target="100" data-suffix="%">0%</div>
+                            <div class="text-xs sm:text-sm font-semibold text-stone-300 mt-2">Kundenzufriedenheit</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-stone-950 text-stone-300 text-sm border-t border-stone-800">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="text-lg font-extrabold text-white">Schreinerei Kauffmann</div>
+                <div class="text-xs text-stone-400 mt-1">Lotharstraße 20, 50937 Köln · Tel. 0221 / 415088</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function navigateTo(pageId) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let heroState = { service: 'Einbauschrank / Kleiderschrank', rate: 450 };
+
+        function setHeroService(name, rate, btn) {
+            heroState.service = name;
+            heroState.rate = rate;
+            document.querySelectorAll('.hero-srv-btn').forEach(b => {
+                b.className = 'hero-srv-btn border border-stone-200 bg-stone-50 text-stone-700 hover:border-amber-600 rounded-xl py-2 px-2 text-center transition cursor-pointer';
+            });
+            btn.className = 'hero-srv-btn border-2 border-amber-800 bg-amber-50/50 text-amber-950 rounded-xl py-2 px-2 text-center transition cursor-pointer';
+            updateHeroEstimate();
+        }
+
+        function updateHeroEstimate() {
+            const count = parseInt(document.getElementById('heroScopeSlider').value, 10);
+            const label = count === 1 ? '1 lfd. Meter / Element' : `${count} lfd. Meter / Elemente`;
+            document.getElementById('heroScopeVal').innerText = label;
+            const estimate = Math.max(380, Math.round((count * heroState.rate) / 5) * 5);
+            document.getElementById('heroLivePrice').innerText = 'ca. ' + estimate + ' €';
+            document.getElementById('heroCalcSummary').value = `${heroState.service} | ${label} | Richtwert: ca. ${estimate} €`;
+        }
+        updateHeroEstimate();
+
+        document.getElementById('heroDirectForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('heroSubmitBtn');
+            btn.innerText = 'Wird gesendet...';
+            btn.disabled = true;
+            try {
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(new FormData(this)))
+                });
+            } catch (err) {}
+            this.classList.add('hidden');
+            document.getElementById('heroSuccessBox').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
